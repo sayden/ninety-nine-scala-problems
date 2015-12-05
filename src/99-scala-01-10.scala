@@ -25,4 +25,12 @@ object lists {
     case Nil => 0
     case _ :: tail => length(tail) + 1
   }
+
+  //05 Reverse a list
+  def reverse[X](xs: List[X]): List[X] = xs match {
+    case Nil => Nil
+    case x :: tail => reverse(tail) ::: List(x)
+  }
+
+  
 }
