@@ -20,5 +20,9 @@ object lists {
     case (_, Nil) => throw new NoSuchElementException
   }
 
-  
+  //04 Find the number of elements of a list.
+  def length[X](xs: List[X]): Int = xs match {
+    case Nil => 0
+    case _ :: tail => length(tail) + 1
+  }
 }
