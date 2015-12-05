@@ -50,4 +50,16 @@ object lists {
     case Nil => Nil
     case x :: tail => List(x) ::: compress(tail.dropWhile(_ == x))
   }
+
+  //09 Pack consecutive duplicates of list elements into sublists.
+  def pack[X](xs: List[X]): List[List[X]] = xs match {
+    case List() => List()
+    case x :: tail => List(xs.takeWhile(_ == x)) ::: pack(xs.dropWhile(_ == x))
+  }
+
+  //10 Run-length encoding of a list.
+  def encode[X](xs: List[X]): List[(X, Int)] = xs match {
+    case Nil => Nil
+    case xs => this.pack(xs).map(x => (x.head, x.length))
+  }
 }
