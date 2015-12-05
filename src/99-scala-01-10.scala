@@ -44,4 +44,10 @@ object lists {
       case x => List(x)
     }
   }
+
+  //08 Eliminate consecutive duplicates of list elements.
+  def compress[X](xs: List[X]): List[X] = xs match {
+    case Nil => Nil
+    case x :: tail => List(x) ::: compress(tail.dropWhile(_ == x))
+  }
 }
