@@ -14,4 +14,11 @@ object lists {
   }
 
   //03 Find the Kth element of a list.
+  def nth[X](n: Int, xs: List[X]): X = (n, xs) match {
+    case (0, y :: _) => y
+    case (n, _ :: tail) => nth(n-1, tail)
+    case (_, Nil) => throw new NoSuchElementException
+  }
+
+  
 }
