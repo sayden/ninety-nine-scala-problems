@@ -32,5 +32,10 @@ object lists {
     case x :: tail => reverse(tail) ::: List(x)
   }
 
+  //06 Find out whether a list is a palindrome.
+  def isPalindrome[X](xs: List[X]): Boolean = {
+    xs == this.reverse(xs)
+  }
+
   
 }
