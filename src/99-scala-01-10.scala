@@ -37,5 +37,11 @@ object lists {
     xs == this.reverse(xs)
   }
 
-  
+  //07 Flatten a nested list structure.
+  def flatten(xs: List[Any]): List[Any] = {
+    xs flatMap {
+      case x:List[_] => flatten(x)
+      case x => List(x)
+    }
+  }
 }
