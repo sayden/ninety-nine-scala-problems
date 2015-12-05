@@ -62,4 +62,11 @@ object lists {
     case Nil => Nil
     case xs => this.pack(xs).map(x => (x.head, x.length))
   }
+
+  //11 Modified run-length encoding.
+  def modifiedEncode[X](xs: List[X]): List[Any] = {
+    this.encode(xs).map(x => if (x._2 == 1) x._1 else x)
+  }
+
+
 }
