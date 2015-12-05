@@ -68,5 +68,12 @@ object lists {
     this.encode(xs).map(x => if (x._2 == 1) x._1 else x)
   }
 
-
+  //12 Decode a run-length encoded list.
+  def repeathNth[A](a: A, n:Int): List[A] = (a, n) match {
+    case (a, 0) => List()
+    case (_, n) => List(a) ::: repeathNth(a, n-1)
+  }
+  def decode[A](xs: List[(A, Int)]): List[A] = {
+    xs.flatMap(x => this.repeathNth(x._1, x._2))
+  }
 }
