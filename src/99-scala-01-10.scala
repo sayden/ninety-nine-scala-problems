@@ -104,5 +104,14 @@ object lists {
     case (n, xs) => xs flatMap { x => this.repeatItem(n, x) }
   }
 
-  
+  //16 Drop every Nth element from a list.
+  def drop[X](n:Int, xs: List[X]): List[X] = {
+    def innerDrop[X](y: Int, list: List[X]): List[X] = (y, list) match {
+      case (_, Nil) => Nil
+      case (1, _ :: tail) => innerDrop(n, tail)
+      case (_, z :: tail) => z :: innerDrop(y - 1, tail)
+    }
+
+    innerDrop(n, xs)
+  }
 }
