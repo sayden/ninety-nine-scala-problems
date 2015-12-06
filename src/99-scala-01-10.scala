@@ -91,4 +91,18 @@ object lists {
     case Nil => Nil
     case x :: tail => List(x,x) ::: duplicate(tail)
   }
+
+  //15 Duplicate the elements of a list a given number of times
+  def repeatItem[X](times:Int, x:X): List[X] = (times, x) match {
+    case (0, x) => List()
+    case (n, x) => List(x) ::: repeatItem(times - 1, x)
+  }
+
+  def duplicateN[X](n: Int, xs: List[X]): List[X] = (n, xs) match {
+    case (_, Nil) => Nil
+    case (0, xs) => xs
+    case (n, xs) => xs flatMap { x => this.repeatItem(n, x) }
+  }
+
+  
 }
