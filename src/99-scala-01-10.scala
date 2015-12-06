@@ -76,4 +76,19 @@ object lists {
   def decode[A](xs: List[(A, Int)]): List[A] = {
     xs.flatMap(x => this.repeathNth(x._1, x._2))
   }
+
+  //13 Run-length encoding of a list (direct solution).
+  def encodeOptimized[X](xs: List[X]): List[(X, Int)] = xs match {
+    case Nil => Nil
+    case _ => {
+      val (a, b) = xs.span { _ == xs.head }
+      List((a.head, a.length)) ::: encodeOptimized(b)
+    }
+  }
+
+  //14 Duplicate the elements of a list.
+  def duplicate[A](xs: List[A]): List[A] = xs match {
+    case Nil => Nil
+    case x :: tail => List(x,x) ::: duplicate(tail)
+  }
 }
