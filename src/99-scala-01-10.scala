@@ -114,4 +114,14 @@ object lists {
 
     innerDrop(n, xs)
   }
+
+  //17 Split a list into two parts.
+  def split[X](n: Int, xs: List[X]): (List[X], List[X]) = (n, xs) match {
+    case (_, Nil) => (Nil, Nil)
+    case (0, xs) => (Nil, xs)
+    case (n, h :: xs) => {
+      val (a, z) = split(n - 1, xs)
+      (h :: a, z)
+    }
+  }
 }
