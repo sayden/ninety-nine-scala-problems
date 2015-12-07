@@ -168,5 +168,14 @@ object lists {
     }
   }
 
-
+  // 24 Lotto: Draw N different random numbers from the set 1..M.
+  def lotto(n: Int, set: Int): List[Int] = n match {
+    case 0 => List()
+    case n => {
+      val range = this.range(1, set)
+      val random = (new util.Random).nextInt(range.length)
+      val element = this.removeAt(random, range)
+      element._2 :: lotto(n - 1, set - 1)
+    }
+  }
 }
