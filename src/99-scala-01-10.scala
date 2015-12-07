@@ -124,4 +124,10 @@ object lists {
       (h :: a, z)
     }
   }
+
+  //18 Extract a slice from a list.
+  def slice[X](s: Int, e: Int, xs: List[X]): List[X] = {
+    val (_, tail) = split(s, xs)
+    split(e-s, tail)._1
+  }
 }
