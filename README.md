@@ -23,4 +23,4 @@ The 99 Scala problems from http://aperiodic.net/phil/scala/s-99/
 * 20
 * 21
 * 22
-
+* 23

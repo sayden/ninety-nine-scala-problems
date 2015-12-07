@@ -159,5 +159,14 @@ object lists {
     innerRange(s, e)
   }
 
-  
+  // 23 Extract a given number of randomly selected elements from a list.
+  def randomSelect[X](n: Int, xs: List[X]): List[X] = n match {
+    case 0 => List()
+    case n => {
+      val element = this.removeAt((new util.Random).nextInt(xs.length), xs)
+      element._2 :: randomSelect(n-1, element._1)
+    }
+  }
+
+
 }
