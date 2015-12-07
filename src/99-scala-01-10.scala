@@ -130,4 +130,9 @@ object lists {
     val (_, tail) = split(s, xs)
     split(e-s, tail)._1
   }
+
+  def rotate[X](n: Int, xs: List[X]): List[X] = {
+    val (head, tail) = split(n, xs)
+    tail ::: head
+  }
 }
