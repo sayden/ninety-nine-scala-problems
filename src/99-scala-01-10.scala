@@ -148,4 +148,16 @@ object lists {
     val (head, tail) = split(n, xs)
     head ::: List(element) ::: tail
   }
+
+  // 22 Create a list containing all integers within a given range.
+  def range(s: Int, e: Int): List[Int] = {
+    def innerRange(i: Int, e: Int): List[Int] = i match {
+      case `e` => List(e)
+      case _      => List(i) ::: innerRange(i+1, e)
+    }
+
+    innerRange(s, e)
+  }
+
+  
 }
