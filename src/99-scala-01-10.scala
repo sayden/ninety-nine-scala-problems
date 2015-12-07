@@ -131,8 +131,21 @@ object lists {
     split(e-s, tail)._1
   }
 
+  // 19 Rotate a list N places to the left.
   def rotate[X](n: Int, xs: List[X]): List[X] = {
     val (head, tail) = split(n, xs)
     tail ::: head
+  }
+
+  // 20 Remove the Kth element from a list.
+  def removeAt[X](n: Int, xs: List[X]): (List[X], X) = {
+    val (head, r :: tail) = split(n, xs)
+    (head ::: tail, r)
+  }
+
+  // 21 Insert an element at a given position into a list.
+  def insertAt[X](element: X, n: Int, xs: List[X]): List[X] = {
+    val (head, tail) = split(n, xs)
+    head ::: List(element) ::: tail
   }
 }

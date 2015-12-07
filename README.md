@@ -20,3 +20,6 @@ The 99 Scala problems from http://aperiodic.net/phil/scala/s-99/
 * 17
 * 18
 * 19
+* 20
+* 21
+* 
