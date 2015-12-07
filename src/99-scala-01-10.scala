@@ -178,4 +178,11 @@ object lists {
       element._2 :: lotto(n - 1, set - 1)
     }
   }
+
+  // 25 Generate a random permutation of the elements of a list.
+  def randomPermute[X](xs: List[X]): List[X] = {
+    this.randomSelect(xs.length, xs)
+  }
+
+
 }
